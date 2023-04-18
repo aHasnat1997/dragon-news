@@ -15,7 +15,7 @@ const Left = () => {
       .catch(error => console.log(error))
   }, [])
 
-  console.log(categories);
+  // console.log(categories);
 
   return (
     <div className=''>

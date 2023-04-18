@@ -6,7 +6,7 @@ import Right from './Right';
 
 const Layout = () => {
   return (
-    <Container>
+    <Container className='mt-5'>
       <Row>
         <Col lg={3}><Left /></Col>
         <Col mb={6} lg={6}><Main /></Col>
