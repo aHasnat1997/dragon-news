@@ -38,8 +38,8 @@ const Main = () => {
               </div>
             </Card.Header>
             <Card.Body>
-              <Card.Img variant="top" src={data.image_url} />
-              <Card.Title className='mt-3'>{data.title}</Card.Title>
+              <Card.Title className='fs-3'>{data.title}</Card.Title>
+              <Card.Img variant="top" src={data.image_url} className='my-3' />
               <Card.Text>{data.details.slice(0, 300)}...</Card.Text>
               <Link to={`/details/${data._id}`}><Button variant="primary">Read More</Button></Link>
             </Card.Body>

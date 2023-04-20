@@ -4,6 +4,8 @@ import SingleNews from "../components/SingleNewsDetails/SingleNews";
 import Layout from "../components/Main/Layout";
 import LogIn from "../components/userLog/LogIn";
 import Register from "../components/userLog/Register";
+import Categories from "../components/Main/Categories";
+import Main from "../components/Main/Main";
 
 export const router = createBrowserRouter([
   {
@@ -12,7 +14,17 @@ export const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Layout />
+        element: <Layout />,
+        children: [
+          {
+            path: '/',
+            element: <Main />
+          },
+          {
+            path: 'categories/:id',
+            element: <Categories />
+          }
+        ]
       },
       {
         path: 'details/:id',

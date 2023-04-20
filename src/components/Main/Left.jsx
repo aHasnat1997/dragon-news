@@ -23,7 +23,7 @@ const Left = () => {
       <div className=''>
         {
           categories.map(category => <div key={category.id} className='d-flex'>
-            <NavLink to='/'
+            <NavLink to={`categories/${category.id}`}
               className={`w-100 text-decoration-none my-1 p-3 text-secondary fw-bold border border-info border-opacity-50 rounded-3
               ${({ isActive }) => isActive ? 'bg-info text-dark' : ''}`}>
               {category.name}
