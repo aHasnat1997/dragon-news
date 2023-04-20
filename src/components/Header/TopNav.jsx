@@ -1,6 +1,6 @@
 import React from 'react';
 import { Nav, Navbar, Button, NavDropdown } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const TopNav = () => {
   return (
@@ -17,7 +17,7 @@ const TopNav = () => {
             ${({ isActive }) => isActive ? 'text-primary' : ''}`} to='/contact'>Contact Us</NavLink>
           </Nav>
           <Nav>
-            <Button variant="primary" className='fs-4 px-4'>Log In</Button>
+            <Link to='/log-in'><Button variant="primary" className='fs-4 px-4'>Log In</Button></Link>
             {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
