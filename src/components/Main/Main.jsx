@@ -1,18 +1,28 @@
-import React, { useContext } from 'react';
-import { AllNewsData } from '../../App';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import moment from 'moment';
 import { BsFillBookmarkFill, BsFillBookmarkCheckFill, BsFillShareFill, BsEyeFill } from "react-icons/bs";
+import { AllNewsData } from '../../context/NewsData';
+import { Link } from 'react-router-dom';
 
 
 const Main = () => {
   const allData = useContext(AllNewsData);
 
+  const [limit, setLimit] = useState(false);
+
+  let limitData = [];
+  if (!limit) {
+    limitData = allData.slice(0, 10);
+  } else {
+    limitData = allData;
+  }
+
   return (
     <div>
       {
-        allData.map(data => <div key={data._id} className='mb-4'>
+        limitData.map(data => <div key={data._id} className='mb-4'>
           <Card>
             <Card.Header className='d-flex align-items-center'>
               <img src={data.author.img} alt="author img" width='8%' className='rounded-circle' />
@@ -31,7 +41,7 @@ const Main = () => {
               <Card.Img variant="top" src={data.image_url} />
               <Card.Title className='mt-3'>{data.title}</Card.Title>
               <Card.Text>{data.details.slice(0, 300)}...</Card.Text>
-              <Button variant="primary">Read More</Button>
+              <Link to={`/details/${data._id}`}><Button variant="primary">Read More</Button></Link>
             </Card.Body>
             <Card.Footer className='w-100 d-flex justify-content-between align-items-center'>
               <p>Rating: {data.rating.number}</p>
@@ -40,6 +50,11 @@ const Main = () => {
           </Card>
         </div>)
       }
+      <Button onClick={() => setLimit(!limit)} size="lg" variant="outline-primary" className='w-100'>
+        {
+          limit ? 'See Less' : 'See More'
+        }
+      </Button>
     </div>
   );
 };

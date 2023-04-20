@@ -1,24 +1,23 @@
-import React, { createContext } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header/Header';
 import Layout from './components/Main/Layout';
 import Footer from './components/Footer/Footer';
-import { useLoaderData } from 'react-router-dom';
-
-export const AllNewsData = createContext([]);
+import { Outlet } from 'react-router-dom';
+import StayTop from './utilites/StayTop';
 
 const App = () => {
 
-  const newsData = useLoaderData();
-  // console.log(newsData);
-
   return (
-    <AllNewsData.Provider value={newsData}>
+    // <AllNewsData.Provider value={newsData}>
+    <>
+      <StayTop />
       <Header />
-      <Layout />
+      <Outlet />
       <hr />
       <Footer />
-    </AllNewsData.Provider>
+    </>
+    // </AllNewsData.Provider>
   );
 };
 
