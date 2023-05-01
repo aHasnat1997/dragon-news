@@ -6,6 +6,7 @@ import LogIn from "../components/userLog/LogIn";
 import Register from "../components/userLog/Register";
 import Categories from "../components/Main/Categories";
 import Main from "../components/Main/Main";
+import ProtectedRoute from "./ProtectedRoute";
 
 export const router = createBrowserRouter([
   {
@@ -28,7 +29,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'details/:id',
-        element: <SingleNews />
+        element: <ProtectedRoute><SingleNews /></ProtectedRoute>
       }
     ]
   },

@@ -5,6 +5,8 @@ import moment from 'moment';
 import { BsFillBookmarkFill, BsFillBookmarkCheckFill, BsFillShareFill, BsEyeFill } from "react-icons/bs";
 import { AllNewsData } from '../../context/NewsData';
 import { Link } from 'react-router-dom';
+import Rating from 'react-rating';
+import { FaRegStar, FaStar } from 'react-icons/fa';
 
 
 const Main = () => {
@@ -44,7 +46,14 @@ const Main = () => {
               <Link to={`/details/${data._id}`}><Button variant="primary">Read More</Button></Link>
             </Card.Body>
             <Card.Footer className='w-100 d-flex justify-content-between align-items-center'>
-              <p>Rating: {data.rating.number}</p>
+              <p>
+                <Rating
+                  placeholderRating={data.rating.number}
+                  emptySymbol={<FaRegStar />}
+                  placeholderSymbol={<FaStar />}
+                  fullSymbol={<FaStar />}
+                />
+                <span className='mb-0 ms-2'>{data.rating.number}</span></p>
               <p><BsEyeFill /> {data.total_view}</p>
             </Card.Footer>
           </Card>

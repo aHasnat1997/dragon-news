@@ -8,6 +8,9 @@ import { Link, useParams } from 'react-router-dom';
 
 const Categories = () => {
   const allData = useContext(AllNewsData);
+
+  console.log(allData);
+
   const { id } = useParams();
 
   const categoriesData = allData.filter(data => data.category_id === id);
